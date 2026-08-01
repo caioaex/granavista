@@ -1,0 +1,44 @@
+<section class="health-check">
+  <div class="health-check__card">
+
+    <div class="health-check__brand">
+      <span class="health-check__logo" aria-hidden="true">
+        <span class="health-check__logo-mark">G</span>
+      </span>
+      <h1 class="health-check__title">
+        <span class="health-check__title-primary">Grana</span
+        ><span class="health-check__title-accent">Vista</span>
+      </h1>
+    </div>
+
+    <p class="health-check__subtitle">
+      Bem-vindo. Verificando conexão com o servidor.
+    </p>
+
+    <div
+      class="health-check__status"
+      [class.health-check__status--loading]="status() === 'loading'"
+      [class.health-check__status--ok]="status() === 'Ok'"
+      [class.health-check__status--error]="status() === 'error'"
+    >
+      <span class="health-check__status-dot" aria-hidden="true"></span>
+      <span class="health-check__status-label">
+        @switch (status()) {
+          @case ('loading') { Conectando ao servidor... }
+          @case ('Ok') { Servidor respondendo normalmente }
+          @case ('error') { Não foi possível conectar }
+        }
+      </span>
+    </div>
+
+    @if (status() === 'error') {
+      <button
+        type="button"
+        class="health-check__retry"
+        (click)="checkHealth()"
+      >
+        Tentar novamente
+      </button>
+    }
+  </div>
+</section>

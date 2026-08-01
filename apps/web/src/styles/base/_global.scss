@@ -1,0 +1,34 @@
+// ============================================
+// GranaVista — Global Styles
+// ============================================
+
+@use '../abstracts' as *;
+
+::selection {
+  background-color: var(--brand-100);
+  color: var(--brand-900);
+}
+
+:focus-visible {
+  @include focus-ring;
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-app);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: var(--radius-full);
+  border: 3px solid var(--color-bg-app);
+
+  &:hover {
+    background: var(--gray-400);
+  }
+}

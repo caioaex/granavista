@@ -1,0 +1,35 @@
+{
+  "name": "granavista",
+  "version": "1.0.0",
+  "private": "true",
+  "workspaces": [
+    "apps/*"
+  ],
+  "description": "Sistema de gestão financeira pessoal",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm run start:dev --workspace=apps/api\" \"npm run start --workspace=apps/web\"",
+    "build": "concurrently -n api,web -c cyan,magenta \"npm run build --workspace=apps/api\" \"npm run build --workspace=apps/web\"",
+    "test": "concurrently -n api,web -c cyan,magenta \"npm run test --workspace=apps/api\" \"npm run test --workspace=apps/web\"",
+    "lint": "concurrently -n api,web -c cyan,magenta \"npm run lint --workspace=apps/api\" \"npm run lint --workspace=apps/web\"",
+    "api": "npm run start:dev --workspace=apps/api",
+    "web": "npm run start --workspace=apps/web"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caioaex/granavista.git"
+  },
+  "keywords": [],
+  "author": "Caio Augusto Exteckoetter",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/caioaex/granavista/issues"
+  },
+  "homepage": "https://github.com/caioaex/granavista#readme",
+  "devDependencies": {
+    "concurrently": "^10.0.4"
+  }
+}
