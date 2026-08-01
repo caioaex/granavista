@@ -1,0 +1,77 @@
+// ============================================
+// GranaVista — Mixins
+// ============================================
+
+// Breakpoints (mobile-first)
+$breakpoints: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+);
+
+@mixin media($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+
+  @if $value {
+    @media (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @error 'Breakpoint "#{$breakpoint}" not found.';
+  }
+}
+
+// Focus ring acessível
+@mixin focus-ring {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+@mixin focus-visible {
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+// Truncate texto
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Flex helpers
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Tabular numbers para valores monetários
+@mixin tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+// Container centralizado
+@mixin container($max-width: 1280px) {
+  width: 100%;
+  max-width: $max-width;
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+
+  @include media(md) {
+    padding-inline: var(--space-6);
+  }
+
+  @include media(lg) {
+    padding-inline: var(--space-10);
+  }
+}

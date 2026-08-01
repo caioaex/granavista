@@ -1,0 +1,58 @@
+// ============================================
+// GranaVista — Typography
+// ============================================
+
+@use '../abstracts' as *;
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-app);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: var(--text-3xl);
+}
+
+h2 {
+  font-size: var(--text-2xl);
+}
+
+h3 {
+  font-size: var(--text-xl);
+}
+
+h4 {
+  font-size: var(--text-lg);
+}
+
+.money {
+  font-family: var(--font-mono);
+  @include tabular-nums;
+  font-weight: var(--weight-semibold);
+
+  &--income {
+    color: var(--color-income);
+  }
+
+  &--expense {
+    color: var(--color-expense);
+  }
+
+  &--display {
+    font-size: var(--text-display);
+  }
+}
